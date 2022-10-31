@@ -92,7 +92,14 @@ const createBrief = () => {
     return `I need a logo for my ${shop}. I want a ${work} logo.\n${color}.`;
 }
 
+
+
 const submitBrief = () => {
+    document.onkeyup = function (e) {
+        if (e.keyCode == 13 || e.keyCode == 32) {
+            submitBrief();
+        }
+    }
     let brief = document.querySelector("#brief");
     brief.innerHTML = createBrief();
 }
