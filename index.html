@@ -9,16 +9,20 @@
 
     <script src="app.js"></script>
     <link rel="stylesheet" href="./stylesheet/style.css">
+
     <title>Fake client generator</title>
 </head>
+<!-- Create brief on page load -->
 <body onload="submitBrief()">
     <main class="hero">
-        <h1>Fake Clients</h1>
-        <p>Generate fake clients for your project</p>
+        <h1 class="title">Fake Clients</h1>
+        <p class="Subtitle">Generate fake clients for your project</p>
 
         <div class="box">
-            <div id="brief"></div>
+            <div id="brief"><!-- Palce where the brief will be --></div>
         </div>
+
+        <!-- Submit brief when you click the button -->
         <button class="submit" onclick="submitBrief()">Generate Brief</button>
     </main>
 </body>

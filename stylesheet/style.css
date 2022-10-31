@@ -26,13 +26,13 @@ li, a, h1, h2, p {
   align-items: center;
   flex-direction: column;
 }
-.hero h1 {
+.hero .title {
   font-weight: 900;
   font-size: 36px;
   text-transform: uppercase;
   padding: 75px 0 30px 0;
 }
-.hero p {
+.hero .Subtitle {
   font-weight: 400;
   font-size: 24px;
 }
