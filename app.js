@@ -1,3 +1,7 @@
+/*
+    Create random object to create the brief
+*/
+
 const getRandomWork = () => {
     let workList = [
         "pictorial marks",
@@ -79,29 +83,86 @@ const getRandomColor = () => {
         "pastelle",
         "'young'"
     ];
+    // get a random color in the list
     var randomcolor = colorList[Math.floor(Math.random() * colorList.length)];
+    // adding some change to the quote to look different
+    var question = ["I think", "I'm thinking", "I am thinking"][Math.floor(Math.random() * 3)]
+    // 1/2 chance to have a submited color
     var randomBool = Math.random() > 0.5 ? true : false;
-    return randomBool ? `I think that a ${randomcolor} logo will fit perfect with what i want` : `I don't think about a specific color. I let you decide`;
+    // return the random color for the brief
+    return randomBool ? `${question} that a ${randomcolor} logo will fit perfect with what i want` : `I don't think about a specific color. I let you decide`;
 }
 
-const createBrief = () => {
-    let work = getRandomWork();
-    let shop = getRandomShop();
-    let color = getRandomColor();
+const getRandomName = () => {
+    let nameList = [
+        "James",
+        "Mary",
+        "Robert",
+        "Patricia",
+        "John",
+        "Jennifer",
+        "Michael",
+        "Linda",
+        "David",
+        "Elizabeth",
+        "William",
+        "Barbara",
+        "Richard",
+        "Susan",
+        "Joseph",
+        "Jessica",
+        "Thomas",
+        "Sarah",
+        "Charles",
+        "Karen",
+        "Christopher",
+        "Lisa",
+        "Daniel",
+        "Nancy",
+        "Matthew",
+        "Betty",
+        "Anthony",
+        "Margaret",
+        "Mark",
+        "Sandra"
+    ];
+    return nameList[Math.floor(Math.random() * nameList.length)];
+}
 
-    return `I need a logo for my ${shop}. I want a ${work} logo.\n${color}.`;
+/* 
+    Create the brienf with all random objects
+*/
+
+const createBrief = () => {
+    // import all function for random brief
+    let work = getRandomWork(),
+        shop = getRandomShop(),
+        color = getRandomColor(),
+        name = getRandomName();
+
+    // create some change to look different for each brief
+    let intro = ["Hi,", "Hello,", "Hey,", "Hi!", "Hey!"][Math.floor(Math.random() * 5)];
+    let presentation = [`I'm ${name}`, `My name is ${name}`, `I am ${name}`][Math.floor(Math.random() * 3)]
+
+    // create the brief and send it to the html
+    // the <br /> tag is for the line break the usual \n doesn't work in the innerHTML function
+    return `${intro}<br />
+    ${presentation}. I need a logo for my ${shop}. I want a ${work} logo.<br />
+    ${color}.`;
 }
 
 
 
 const submitBrief = () => {
     document.onkeyup = function (e) {
-        if (e.keyCode == 13 || e.keyCode == 32) {
-            submitBrief();
-        }
+        /* keyboard shortcut to submit brief
+                ctrl             spacebar */
+        if (e.keyCode == 13 || e.keyCode == 32) submitBrief();
     }
+    // select the brief element in the html
     let brief = document.querySelector("#brief");
+    // create the brief and send it to the html
     brief.innerHTML = createBrief();
 }
 
-console.log(createBrief());
+// console.log(createBrief());
